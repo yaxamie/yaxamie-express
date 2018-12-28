@@ -1,1 +1,19 @@
+$> npm run dev 
+
+Big guide
 https://itnext.io/building-restful-web-apis-with-node-js-express-mongodb-and-typescript-part-1-2-195bdaf129cf
+
+handlebars
+https://webapplog.com/handlebars/
+
+Moustace
+https://www.npmjs.com/package/mustache
+
+function loadTemplate(template) {
+    return this.fs.readFileSync(app.set('views') + template+ '.html').toString();
+}
+
+var html = Mustache.to_html(loadTemplate('myView'), {key: "value", ...});
+
+res.send(html);
+

@@ -1,0 +1,115 @@
+body {
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	background: #CCC;
+	
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.page {
+	margin: 0 auto;
+	background-image: url("../images/paper.png");
+	color:#000;
+	background-color: white;
+}
+
+@media screen and (max-width: 500px) {
+    .page {
+    	padding-bottom: 0px;
+    	padding-left: 20px;
+    	padding-right: 20px;
+    	margin-top: 0px;
+    }
+
+    body {
+    	margin-top: 0px;
+		margin-bottom: 0px;
+    }
+}
+
+@media screen and (min-width: 501px) {
+	.page {
+		max-width: 440px; 
+		padding: 20px;
+		border-radius:0px;
+		margin-top: 5px;
+		border-style:solid;
+		border-width:1px;
+		border-color: #000;
+
+		box-shadow: 3px 3px 3px #000;
+
+	}
+}
+
+
+
+a {
+	font-weight: bold;
+	color:#333;
+
+}
+
+.footer a { color: white; }
+
+.footer {
+	text-transform:lowercase;
+	font-size:22px;
+	background-color: #A5433E;
+	text-shadow: 1px 1px 1px #000;
+	margin-top: 18px;
+	margin-right: -20px;
+	margin-left: -20px;
+	padding-left: 20px;
+	padding-right: 10px;
+	padding-bottom: 3px;
+	text-align: right;
+	color:#FFF;
+	font-style: italic;
+	font-family: "Arial", "Helvetica", "sans-serif";
+}
+
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+h1 {
+	text-transform:lowercase;
+	font-size:28px;
+	background-color: #A5433E;
+	text-shadow: 1px 1px 1px #000;
+	margin-top: -3px;
+	margin-right: -20px;
+	margin-left: -20px;
+	padding-left: 20px;
+	padding-bottom: 3px;
+	padding-top: 6px;
+	color:#FFF;
+	font-style: italic;
+	font-family: "Arial", "Helvetica", "sans-serif";
+}
+
+h2 {
+	text-transform:lowercase;
+	font-size:22px;
+	color:#000;
+	font-style: italic;
+	font-family: "Arial", "Helvetica", "sans-serif";
+}
+
+h3 {
+	text-transform:lowercase;
+	font-size:20px;
+	color:#000;
+	font-style: italic;
+	font-family: "Arial", "Helvetica", "sans-serif";
+}
+
