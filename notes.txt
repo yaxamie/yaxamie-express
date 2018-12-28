@@ -9,6 +9,8 @@ https://webapplog.com/handlebars/
 Moustace
 https://www.npmjs.com/package/mustache
 
+I'll probably do something like this to inject headers or just fake it more or less
+
 function loadTemplate(template) {
     return this.fs.readFileSync(app.set('views') + template+ '.html').toString();
 }
@@ -17,3 +19,31 @@ var html = Mustache.to_html(loadTemplate('myView'), {key: "value", ...});
 
 res.send(html);
 
+
+
+
+--------------
+
+Scratch pad
+
+# JSX
+
+https://www.typescriptlang.org/docs/handbook/jsx.html
+https://stackoverflow.com/questions/805107/creating-multiline-strings-in-javascript
+
+
+# Express with Mustache + Handlebars
+
+https://www.kulik.io/2018/01/02/how-to-use-handlebars-with-express/
+https://webapplog.com/handlebars/
+https://www.npmjs.com/package/mustache
+
+
+# Really good guide that got me started, only did the first 2 parts so far.
+
+https://itnext.io/building-restful-web-apis-with-node-js-express-mongodb-and-typescript-part-1-2-195bdaf129cf
+
+
+# You may actually wanna go this deep down the ugly hole for picture library
+
+https://blog.logrocket.com/how-to-build-a-server-rendered-react-app-with-next-express-d5a389e7ab2f
