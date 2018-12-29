@@ -31,7 +31,7 @@ export class HtmlRoutes {
     private cv(app:Application){
         const contents = {
             route:'/cv',
-            page:'cv.html',
+            page:'cv.md',
             title:'cv',
             footer:this.linkHome()
         };

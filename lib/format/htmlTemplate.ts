@@ -11,7 +11,6 @@ return `<!DOCTYPE html><html>
     <body>
 
     <div class="page">
-        <h1>${title}</h1>
         ${body}
         <div class="footer">
         ${footer}

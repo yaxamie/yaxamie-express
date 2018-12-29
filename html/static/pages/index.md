@@ -1,3 +1,5 @@
+# yaxamie
+
 I am Rusty Parks, a game developer and tinkerer.  
 
 ![Pixel art by @BlueHeatwave](images/ascii_rusty_full.png)
@@ -17,6 +19,6 @@ Started by [Patrick Rogers](https://twitter.com/patrickrogers "@patrickrogers") 
 <center>
 [Twitter](http://www.twitter.com/yaxamie/ "Twitter") 
 |
-[Youtbue](http://www.youtube.com/+RustyParks/ "Facebook")
+[Youtube](http://www.youtube.com/+RustyParks/ "Facebook")
 </center>
 
