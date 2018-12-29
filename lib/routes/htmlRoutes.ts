@@ -2,7 +2,7 @@ import {Request, Response, Application} from "express";
 import {htmlPath} from '../pathUtils';
 import * as htmlTemplate from '../format/htmlTemplate';
 import * as fs from 'fs';
-import * as path from 'path';
+import * as markdown from '../format/markdown';
 
 interface IDyanmicPageContents {
     route:string, 
@@ -21,7 +21,7 @@ export class HtmlRoutes {
     private index(app:Application) {
         const contents = {
             route:'/',
-            page:'index.html',
+            page:'index.md',
             title:'yaxamie',
             footer:'~rusty parks'
         };
@@ -44,7 +44,13 @@ export class HtmlRoutes {
 
     private addRoute(app:Application, contents:IDyanmicPageContents) {
         const {title, footer, page} = contents;
-        const body = fs.readFileSync(htmlPath(`static/pages/${page}`)).toString();
+        
+        let body = fs.readFileSync(htmlPath(`static/pages/${page}`)).toString();
+        
+        if (page.endsWith('.md')) {
+            body = markdown.toHtml(body);
+        }
+
         const pageContents = htmlTemplate.standard(title, body, footer);
         
         app.route(contents.route)
