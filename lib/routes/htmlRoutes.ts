@@ -1,57 +1,55 @@
 import {Request, Response, Application} from "express";
 import {htmlPath} from '../pathUtils';
+import * as htmlTemplate from '../format/htmlTemplate';
 import * as fs from 'fs';
 import * as path from 'path';
 
-export class HtmlRoutes {       
-    public addRoutes(app:Application): void {          
-        // route htmls too
-        let htmlFiles = this.findHtmlFiles(htmlPath(''));
-        htmlFiles.forEach((file)=> {
-            let path = file.split('/');
-            let route = path[path.length - 1];
-            
-            // slice off .html
-            route = '/' + route.slice(0, -5);
-            
-            // route /index to simplly /
-            if (route == '/index') { route = '/'; }
+interface IDyanmicPageContents {
+    route:string, 
+    page:string,
+    title:string,
+    footer:string
+};
 
-            app.route(route)
-            .get((req: Request, res: Response) => {
-                res.sendFile(file);
-            });
-        });
+export class HtmlRoutes { 
+    
+    public addRoutes(app:Application): void {          
+        this.index(app);
+        this.cv(app);
+     };
+
+    private index(app:Application) {
+        const contents = {
+            route:'/',
+            page:'index.html',
+            title:'yaxamie',
+            footer:'~rusty parks'
+        };
+        this.addRoute( app, contents );
     }
 
-    findHtmlFiles(startPath:string):string[] {
-        let fileList:string[] = [];
-    
-        console.log('Starting from dir '+startPath+'/');
-    
-        if (!fs.existsSync(startPath)){
-            console.log("not a directory ",startPath);
-            return;
-        }
-    
-        let files = fs.readdirSync(startPath);
-        
-        for(let i=0;i<files.length;i++){
-            let filename = path.join(startPath,files[i]);
-            let stat = fs.lstatSync(filename);
-            
-            if (stat.isDirectory()){
-                //recurse subdirectores and destucture them into the list
-                const subdirectoryFiles = this.findHtmlFiles(filename); 
-                fileList = [...fileList, ...subdirectoryFiles];
-            }
-            
-            else if (filename.endsWith('.html')) {
-                console.log('-- found: ',filename);
-                fileList.push(filename);
-            };
+    private cv(app:Application){
+        const contents = {
+            route:'/cv',
+            page:'cv.html',
+            title:'cv',
+            footer:this.linkHome()
         };
-    
-        return fileList;
-    };
+        this.addRoute( app, contents );
+    }
+
+    private linkHome() {
+        return `<a href="/">home</a>`;
+    }
+
+    private addRoute(app:Application, contents:IDyanmicPageContents) {
+        const {title, footer, page} = contents;
+        const body = fs.readFileSync(htmlPath(`static/pages/${page}`)).toString();
+        const pageContents = htmlTemplate.standard(title, body, footer);
+        
+        app.route(contents.route)
+        .get((req: Request, res: Response) => {
+            res.send(pageContents);}
+        );
+    }
 }
