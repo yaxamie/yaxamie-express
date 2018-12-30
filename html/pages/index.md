@@ -4,7 +4,11 @@ I am Rusty Parks, a game developer and tinkerer.
 
 ![Pixel art by @BlueHeatwave](images/ascii_rusty_full.png)
 
-This site is ran from a Raspberry Pi 2B in my office.  This page is located on a class 10 sd card, but most of the site lives on a usb-2 thumb drive.  
+This site is served from a Raspberry Pi 2B, is written in typescript and is written in NodeJS with the help of ExpressJS and markdown for rendering.
+
+It's open source!
+
+Check out the [GitHub](https://github.com/yaxamie/yaxamie-express).
 
 [My Blog](/blog "Thoughts and musings")
 
