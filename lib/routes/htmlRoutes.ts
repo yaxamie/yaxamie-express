@@ -1,5 +1,6 @@
 import {Request, Response, Application} from "express";
 import {htmlPath} from '../pathUtils';
+import * as express from "express";
 import * as htmlTemplate from '../format/htmlTemplate';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -46,7 +47,6 @@ export class HtmlRoutes {
         // currenlty only handles .mds
 
         const files = fs.readdirSync(htmlPath('pages/blog'));
-        let baseNames:string[] = [];
         files.forEach((file) => {
             // trim off the file extension and the leading path
             let baseName = path.basename(file, '.md');
@@ -85,8 +85,31 @@ export class HtmlRoutes {
 
         app.route('/podcast')
         .get((req: Request, res: Response) => {
-            res.send(pageContents);}
-        );
+            res.send(pageContents);
+        });
+        
+        app.route('/podcast')
+        .get((req: Request, res: Response) => {
+            res.send(pageContents);
+        });
+        
+        // route files to podcast/filename
+        let podcastDir = htmlPath('pages/podcast');
+        fs.readdirSync(podcastDir).forEach((file)=>{
+            app.route(`/podcast/${file}`)
+            .get((req: Request, res: Response) => {
+                res.sendFile(path.join(podcastDir, file));
+            });
+        });
+
+        // route poderator.xml to conent/podcast/filename for legacy support
+        // need to track down listing sites and update this url so we can fix and 
+        // remove this legacy stuff
+        app.route(`/content/podcast/Poderator.xml`)
+        .get((req: Request, res: Response) => {
+            res.sendFile(htmlPath('pages/podcast/Poderator.xml'));
+        });
+
     }
 
     private addRoute(app:Application, contents:IDyanmicPageContents) {
@@ -102,8 +125,8 @@ export class HtmlRoutes {
         
         app.route(contents.route)
         .get((req: Request, res: Response) => {
-            res.send(pageContents);}
-        );
+            res.send(pageContents);
+        });
     }
 
     private linkHome() {

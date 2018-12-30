@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <atom:link href="http://www.yaxamie.com/content/podcast/poderator.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.yaxamie.com/podcast/poderator.xml" rel="self" type="application/rss+xml" />
     <title>The Game Dads</title>
-    <link>http://www.yaxamie.com/content/podcast/</link>
+    <link>http://www.yaxamie.com/podcast/</link>
     <description>Two gamers who somehow woke up as employed dads in their 30's.  How do dads find time to game?  What changes when you have kids/wives/jobs?</description>
     <itunes:summary>Two gamers who somehow woke up as employed dads in their 30's. </itunes:summary>
     <itunes:subtitle> How do dads find time to game?  What changes when you have kids/wives/jobs?</itunes:subtitle>
@@ -24,13 +24,13 @@
     </itunes:owner>
     <itunes:author>Patrick Rogers and Rusty Parks</itunes:author>
     <itunes:explicit>No</itunes:explicit>
-    <itunes:image href="http://www.yaxamie.com/content/podcast/GameDads.png" />
+    <itunes:image href="http://www.yaxamie.com/podcast/GameDads.png" />
 
     <ttl>1</ttl>
     <item>
       <title>Episode 1 - Neko Atsume</title>
-      <link>http://www.yaxamie.com/content/podcast/TheGameDads-S1E1-NekoAtsume.mp3</link>
-      <comments>http://www.yaxamie.com/content/podcast/TheGameDads-S1E1-NekoAtsume.mp3</comments>
+      <link>http://www.yaxamie.com/podcast/TheGameDads-S1E1-NekoAtsume.mp3</link>
+      <comments>http://www.yaxamie.com/podcast/TheGameDads-S1E1-NekoAtsume.mp3</comments>
       <itunes:author>Patrick Rogers and Rusty Parks</itunes:author>
       <dc:creator>Patrick Rogers and Rusty Parks</dc:creator>
       <description>The first episode, full of air guitar intro music, caster introductions, toilet games, and rambling.</description>
@@ -41,15 +41,15 @@
       <itunes:keywords>Game, Gamer, Gaming, Parenting, Nerd, Nerds</itunes:keywords>
       <itunes:duration>00:32:10</itunes:duration>
       <category>Games &amp; Hobbies</category>
-      <enclosure url="http://www.yaxamie.com/content/podcast/TheGameDads-S1E1-NekoAtsume.mp3" length="31142707" type="audio/mpeg3" />
-      <guid>http://www.yaxamie.com/content/podcast/TheGameDads-S1E1-NekoAtsume.mp3</guid>
+      <enclosure url="http://www.yaxamie.com/podcast/TheGameDads-S1E1-NekoAtsume.mp3" length="31142707" type="audio/mpeg3" />
+      <guid>http://www.yaxamie.com/podcast/TheGameDads-S1E1-NekoAtsume.mp3</guid>
       <itunes:explicit>no</itunes:explicit>
     </item>
 
     <item>
       <title>Episode 2 - That Dragon, Cancer</title>
-      <link>http://www.yaxamie.com/content/podcast/TheGameDads-S1E2-ThatDragonCancer.mp3</link>
-      <comments>http://www.yaxamie.com/content/podcast/TheGameDads-S1E2-ThatDragonCancer.mp3</comments>
+      <link>http://www.yaxamie.com/podcast/TheGameDads-S1E2-ThatDragonCancer.mp3</link>
+      <comments>http://www.yaxamie.com/podcast/TheGameDads-S1E2-ThatDragonCancer.mp3</comments>
       <itunes:author>Patrick Rogers and Rusty Parks</itunes:author>
       <dc:creator>Patrick Rogers and Rusty Parks</dc:creator>
       <description>Episode 2 - in which Rusty explains That Dragon, Cancer... the game Patrick will not put himself through.</description>
@@ -60,15 +60,15 @@
       <itunes:keywords>Game, Gamer, Gaming, Parenting, Nerd, Nerds</itunes:keywords>
       <itunes:duration>00:45:28</itunes:duration>
       <category>Games &amp; Hobbies</category>
-      <enclosure url="http://www.yaxamie.com/content/podcast/TheGameDads-S1E2-ThatDragonCancer.mp3" length="46137344" type="audio/mpeg3" />
-      <guid>http://www.yaxamie.com/content/podcast/TheGameDads-S1E2-ThatDragonCancer.mp3</guid>
+      <enclosure url="http://www.yaxamie.com/podcast/TheGameDads-S1E2-ThatDragonCancer.mp3" length="46137344" type="audio/mpeg3" />
+      <guid>http://www.yaxamie.com/podcast/TheGameDads-S1E2-ThatDragonCancer.mp3</guid>
       <itunes:explicit>no</itunes:explicit>
     </item>
 
     <item>
       <title>Episode 3 - Freemium Garbage</title>
-      <link>http://www.yaxamie.com/content/podcast/TheGameDads-S1E3-FreemiumGarbage.mp3</link>
-      <comments>http://www.yaxamie.com/content/podcast/TheGameDads-S1E3-FreemiumGarbage.mp3</comments>
+      <link>http://www.yaxamie.com/podcast/TheGameDads-S1E3-FreemiumGarbage.mp3</link>
+      <comments>http://www.yaxamie.com/podcast/TheGameDads-S1E3-FreemiumGarbage.mp3</comments>
       <itunes:author>Patrick Rogers and Rusty Parks</itunes:author>
       <dc:creator>Patrick Rogers and Rusty Parks</dc:creator>
       <description>Episode 3 - After a week of the apex of freemium torture, it's time to unload.</description>
@@ -79,15 +79,15 @@
       <itunes:keywords>Game, Gamer, Gaming, Parenting, Nerd, Nerds</itunes:keywords>
       <itunes:duration>00:46:17</itunes:duration>
       <category>Games &amp; Hobbies</category>
-      <enclosure url="http://www.yaxamie.com/content/podcast/TheGameDads-S1E3-FreemiumGarbage.mp3" length="46137344" type="audio/mpeg3" />
-      <guid>http://www.yaxamie.com/content/podcast/TheGameDads-S1E3-FreemiumGarbage.mp3</guid>
+      <enclosure url="http://www.yaxamie.com/podcast/TheGameDads-S1E3-FreemiumGarbage.mp3" length="46137344" type="audio/mpeg3" />
+      <guid>http://www.yaxamie.com/podcast/TheGameDads-S1E3-FreemiumGarbage.mp3</guid>
       <itunes:explicit>no</itunes:explicit>
     </item>
 
     <item>
       <title>Episode 4 - Terra Battle</title>
-      <link>http://www.yaxamie.com/content/podcast/TheGameDads-S1E4-TerraBattle.mp3</link>
-      <comments>http://www.yaxamie.com/content/podcast/TheGameDads-S1E4-TerraBattle.mp3</comments>
+      <link>http://www.yaxamie.com/podcast/TheGameDads-S1E4-TerraBattle.mp3</link>
+      <comments>http://www.yaxamie.com/podcast/TheGameDads-S1E4-TerraBattle.mp3</comments>
       <itunes:author>Patrick Rogers and Rusty Parks</itunes:author>
       <dc:creator>Patrick Rogers and Rusty Parks</dc:creator>
       <description>Episode 4 - Rebooting Game Dads!  With Lunch dads.  We talk about Terra Battle</description>
@@ -98,8 +98,8 @@
       <itunes:keywords>Game, Gamer, Gaming, Parenting, Nerd, Nerds</itunes:keywords>
       <itunes:duration>00:46:17</itunes:duration>
       <category>Games &amp; Hobbies</category>
-      <enclosure url="http://www.yaxamie.com/content/podcast/TheGameDads-S1E4-TerraBattle.mp3" length="46137344" type="audio/mpeg3" />
-      <guid>http://www.yaxamie.com/content/podcast/TheGameDads-S1E4-TerraBattle.mp3</guid>
+      <enclosure url="http://www.yaxamie.com/podcast/TheGameDads-S1E4-TerraBattle.mp3" length="46137344" type="audio/mpeg3" />
+      <guid>http://www.yaxamie.com/podcast/TheGameDads-S1E4-TerraBattle.mp3</guid>
       <itunes:explicit>no</itunes:explicit>
     </item>
 

@@ -1,6 +1,6 @@
 import * as parse from 'xml-parser';
-import * as markdown from './markdown';
 import * as fs from 'fs';
+import * as path from 'path';
 import * as pathUtils from '../pathUtils';
 
 export function standard(title:string, body:string, footer:string) {
@@ -37,32 +37,29 @@ Twitter - [@game_dads](https://twitter.com/game_dads)
 `;
     let poderator =  fs.readFileSync(pathUtils.htmlPath('pages/podcast/Poderator.xml')).toString();
     let xml = parse( poderator );
-    
-    let channel = xml.root.children.find((node:parse.Node) => 
-        node.name == 'channel'
-    );
 
-    let items = channel.children.filter((node:parse.Node) => 
-        node.name == 'item');
+    let findChildByName = (parentNode:parse.Node, name:string) =>  
+        parentNode.children.find((node) => node.name == name);
+
+    let findChildrenByName = (parentNode:parse.Node, name:string) => 
+        parentNode.children.filter((node) => node.name == name);
+    
+    let channel = findChildByName(xml.root, 'channel');
+    let items = findChildrenByName(channel, 'item');
 
     items.forEach((item)=> {
         contents += "\n ---- ";
         
-        let title = item.children.filter((node:parse.Node) => 
-            node.name == 'title'
-        );
-        let description = item.children.filter((node:parse.Node) => 
-            node.name == 'description'
-        );
-        let link = item.children.filter((node:parse.Node) => 
-            node.name == 'link'
-        );
+        let title = findChildByName(item, 'title').content;
+        let description = findChildByName(item, 'description').content;
+        let link = findChildByName(item, 'link').content;
 
-        contents += `\n ### ${title[0].content}`;
-        contents += `\n\n ${description[0].content}`;
-        contents += `\n\n [listen](${link[0].content}) \n`;
+        link = `podcast/${path.basename(link)}`;
+
+        contents += `\n ### ${title}`;
+        contents += `\n\n ${description}`;
+        contents += `\n\n [listen](${link}) \n`;
     });
 
-    console.log(contents);
     return contents;
 }
