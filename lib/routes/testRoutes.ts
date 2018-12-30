@@ -1,5 +1,6 @@
 import {Request, Response, Application} from "express";
 import * as path from '../pathUtils';
+import { json } from "body-parser";
 
 export class TestRoutes {       
     public addRoutes(app:Application): void {          
@@ -16,12 +17,14 @@ export class TestRoutes {
             })
         });
 
-        app.route('/send')
+        app.route('/params/:number') 
         .get((req: Request, res: Response) => {
-            const literal:string = 
-                `<h1>hi</h1>
-                what's up with you?`;
-            res.send(literal);
+            res.send( 
+                JSON.stringify(req.params)
+                + JSON.stringify(req.path)
+                + JSON.stringify(req.method)
+                + JSON.stringify(req.originalUrl)
+            );
         });
     }
 }

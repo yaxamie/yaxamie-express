@@ -2,6 +2,7 @@ import {Request, Response, Application} from "express";
 import {htmlPath} from '../pathUtils';
 import * as htmlTemplate from '../format/htmlTemplate';
 import * as fs from 'fs';
+import * as path from 'path';
 import * as markdown from '../format/markdown';
 
 interface IDyanmicPageContents {
@@ -16,6 +17,7 @@ export class HtmlRoutes {
     public addRoutes(app:Application): void {          
         this.index(app);
         this.cv(app);
+        this.blog(app);
      };
 
     private index(app:Application) {
@@ -38,8 +40,67 @@ export class HtmlRoutes {
         this.addRoute( app, contents );
     }
 
+    private titleCase(str:string) {
+        let splitStr = str.toLowerCase().split(' ');
+        for (var i = 0; i < splitStr.length; i++) {
+            // You do not need to check if i is larger than splitStr length, as your for does that for you
+            // Assign it back to the array
+            splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+        }
+        // Directly return the joined string and convet spaces to sep
+        return splitStr.join(' '); 
+     }
+
+     private underscoreCase(str:string) {
+        let splitStr = str.toLowerCase().split(' ');
+        for (var i = 0; i < splitStr.length; i++) {
+            // You do not need to check if i is larger than splitStr length, as your for does that for you
+            // Assign it back to the array
+            splitStr[i] = splitStr[i].charAt(0).toLowerCase() + splitStr[i].substring(1);     
+        }
+        // Directly return the joined string and convet spaces to sep
+        return splitStr.join('_'); 
+     }
+
+    private blog(app:Application){
+        // currenlty only handles .mds
+
+        const files = fs.readdirSync(htmlPath('static/pages/blog'));
+        let baseNames:string[] = [];
+        files.forEach((file) => {
+            // trim off the file extension and the leading path
+            let baseName = path.basename(file, '.md');
+            
+            // route is /blog/OnCriticism, or just /blog for the index
+            let route = `/blog/${this.underscoreCase(baseName)}`;
+            
+            // only supports md files atm 
+            let page = `blog/${baseName}.md`;
+            // title case the display title
+            let title = `${this.titleCase(baseName)}`;
+            // link home from blog, or to blog from a page
+            let footer = this.linkBlog();
+
+            // fix index
+            if (route == '/blog/index') {
+                route = '/blog'
+                footer = this.linkHome();
+            }
+
+            const contents = {
+                route, page, title, footer
+            };
+
+            this.addRoute( app, contents );
+        });
+    }
+
     private linkHome() {
         return `<a href="/">home</a>`;
+    }
+    
+    private linkBlog() {
+        return `<a href="/blog">blog</a>`;
     }
 
     private addRoute(app:Application, contents:IDyanmicPageContents) {

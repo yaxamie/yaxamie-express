@@ -1,11 +1,10 @@
 body {
 	font-family: "Arial", "Helvetica", "sans-serif";
-	font-size: 18px;
+	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
 	color: #333;
 	background: #CCC;
-	
 	
 	margin-left: 0px;
 	margin-right: 0px;
@@ -54,7 +53,20 @@ img {
 	}
 }
 
+ul {
+	list-style-type: none;
+	list-style: none;
+	padding-left: 3px;
+}
+  
+li { 
+	padding-left: 1px; 
+}
 
+li::before {
+	content: "☕"; /* Insert content that looks like bullets */
+	padding-right: 6px;
+}
 
 a {
 	font-weight: bold;
@@ -78,7 +90,6 @@ a {
 	text-align: right;
 	color:#FFF;
 	font-style: italic;
-	font-family: "Arial", "Helvetica", "sans-serif";
 }
 
 hr {
@@ -89,34 +100,38 @@ hr {
 }
 
 h1 {
-	text-transform:lowercase;
 	font-size:28px;
-	background-color: #A5433E;
-	text-shadow: 1px 1px 1px #000;
+	
+	text-align:center;
+	vertical-align:middle;
+	
 	margin-top: -3px;
 	margin-right: -20px;
 	margin-left: -20px;
 	padding-left: 20px;
 	padding-bottom: 3px;
 	padding-top: 6px;
+	
+	background-color: #A5433E;
+	text-shadow: 1px 2px 0px #000;
 	color:#FFF;
-	font-style: italic;
-	font-family: "Arial", "Helvetica", "sans-serif";
+
 }
 
-h2 {
-	text-transform:lowercase;
+h2 {	
+	margin-top: -6px;
+	margin-right: -20px;
+	margin-left: -20px;
+	margin-bottom: -6px;
+	
+	padding: 0px;
+	padding-left: 20px;
+
 	font-size:22px;
-	color:#000;
-	font-style: italic;
-	font-family: "Arial", "Helvetica", "sans-serif";
+	color:#222;
 }
 
 h3 {
-	text-transform:lowercase;
-	font-size:20px;
-	color:#333;
-	font-style: italic;
-	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size:18px;
 }
 
