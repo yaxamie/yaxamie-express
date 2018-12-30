@@ -1,3 +1,8 @@
+import * as parse from 'xml-parser';
+import * as markdown from './markdown';
+import * as fs from 'fs';
+import * as pathUtils from '../pathUtils';
+
 export function standard(title:string, body:string, footer:string) {
 return `<!DOCTYPE html><html>
     <head>
@@ -19,4 +24,45 @@ return `<!DOCTYPE html><html>
 
     </body>
     </html>`;
+}
+
+export function podcastContents() {
+    let contents = `
+# the game dads
+
+Email - emailthedads@gmail.com
+
+Twitter - [@game_dads](https://twitter.com/game_dads)    
+
+`;
+    let poderator =  fs.readFileSync(pathUtils.htmlPath('pages/podcast/Poderator.xml')).toString();
+    let xml = parse( poderator );
+    
+    let channel = xml.root.children.find((node:parse.Node) => 
+        node.name == 'channel'
+    );
+
+    let items = channel.children.filter((node:parse.Node) => 
+        node.name == 'item');
+
+    items.forEach((item)=> {
+        contents += "\n ---- ";
+        
+        let title = item.children.filter((node:parse.Node) => 
+            node.name == 'title'
+        );
+        let description = item.children.filter((node:parse.Node) => 
+            node.name == 'description'
+        );
+        let link = item.children.filter((node:parse.Node) => 
+            node.name == 'link'
+        );
+
+        contents += `\n ### ${title[0].content}`;
+        contents += `\n\n ${description[0].content}`;
+        contents += `\n\n [listen](${link[0].content}) \n`;
+    });
+
+    console.log(contents);
+    return contents;
 }

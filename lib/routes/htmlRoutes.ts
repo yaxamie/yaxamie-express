@@ -5,6 +5,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as markdown from '../format/markdown';
 
+
 interface IDyanmicPageContents {
     route:string, 
     page:string,
@@ -18,6 +19,7 @@ export class HtmlRoutes {
         this.index(app);
         this.cv(app);
         this.blog(app);
+        this.podcast(app);
      };
 
     private index(app:Application) {
@@ -40,32 +42,10 @@ export class HtmlRoutes {
         this.addRoute( app, contents );
     }
 
-    private titleCase(str:string) {
-        let splitStr = str.toLowerCase().split(' ');
-        for (var i = 0; i < splitStr.length; i++) {
-            // You do not need to check if i is larger than splitStr length, as your for does that for you
-            // Assign it back to the array
-            splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
-        }
-        // Directly return the joined string and convet spaces to sep
-        return splitStr.join(' '); 
-     }
-
-     private underscoreCase(str:string) {
-        let splitStr = str.toLowerCase().split(' ');
-        for (var i = 0; i < splitStr.length; i++) {
-            // You do not need to check if i is larger than splitStr length, as your for does that for you
-            // Assign it back to the array
-            splitStr[i] = splitStr[i].charAt(0).toLowerCase() + splitStr[i].substring(1);     
-        }
-        // Directly return the joined string and convet spaces to sep
-        return splitStr.join('_'); 
-     }
-
     private blog(app:Application){
         // currenlty only handles .mds
 
-        const files = fs.readdirSync(htmlPath('static/pages/blog'));
+        const files = fs.readdirSync(htmlPath('pages/blog'));
         let baseNames:string[] = [];
         files.forEach((file) => {
             // trim off the file extension and the leading path
@@ -95,18 +75,24 @@ export class HtmlRoutes {
         });
     }
 
-    private linkHome() {
-        return `<a href="/">home</a>`;
-    }
-    
-    private linkBlog() {
-        return `<a href="/blog">blog</a>`;
+    private podcast(app:Application) {
+        let body = markdown.toHtml(htmlTemplate.podcastContents());
+        
+        const pageContents = htmlTemplate.standard(
+            'The Game Dads Podcast', 
+            body, 
+            this.linkHome());
+
+        app.route('/podcast')
+        .get((req: Request, res: Response) => {
+            res.send(pageContents);}
+        );
     }
 
     private addRoute(app:Application, contents:IDyanmicPageContents) {
         const {title, footer, page} = contents;
         
-        let body = fs.readFileSync(htmlPath(`static/pages/${page}`)).toString();
+        let body = fs.readFileSync(htmlPath(`pages/${page}`)).toString();
         
         if (page.endsWith('.md')) {
             body = markdown.toHtml(body);
@@ -119,4 +105,34 @@ export class HtmlRoutes {
             res.send(pageContents);}
         );
     }
+
+    private linkHome() {
+        return `<a href="/">home</a>`;
+    }
+    
+    private linkBlog() {
+        return `<a href="/blog">blog</a>`;
+    }
+    
+    private titleCase(str:string) {
+        let splitStr = str.toLowerCase().split(' ');
+        for (var i = 0; i < splitStr.length; i++) {
+            // You do not need to check if i is larger than splitStr length, as your for does that for you
+            // Assign it back to the array
+            splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+        }
+        // Directly return the joined string and convet spaces to sep
+        return splitStr.join(' '); 
+     }
+
+     private underscoreCase(str:string) {
+        let splitStr = str.toLowerCase().split(' ');
+        for (var i = 0; i < splitStr.length; i++) {
+            // You do not need to check if i is larger than splitStr length, as your for does that for you
+            // Assign it back to the array
+            splitStr[i] = splitStr[i].charAt(0).toLowerCase() + splitStr[i].substring(1);     
+        }
+        // Directly return the joined string and convet spaces to sep
+        return splitStr.join('_'); 
+     }
 }

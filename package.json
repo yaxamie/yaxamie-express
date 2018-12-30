@@ -14,8 +14,10 @@
   "dependencies": {
     "@types/express": "^4.16.0",
     "@types/remarkable": "^1.7.2",
+    "@types/xml-parser": "^1.2.29",
     "express": "^4.16.4",
-    "remarkable": "^1.7.1"
+    "remarkable": "^1.7.1",
+    "xml-parser": "^1.2.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
